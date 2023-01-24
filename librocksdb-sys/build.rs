@@ -159,6 +159,9 @@ fn build_rocksdb() {
         config.define("OS_ANDROID", None);
         config.define("ROCKSDB_PLATFORM_POSIX", None);
         config.define("ROCKSDB_LIB_IO_POSIX", None);
+        // config.define("ROCKSDB_LITE", None);
+        // config.define("ROCKSDB_PORTABLE", None);
+        // config.define("ANDROID_STL", "c++_shared");
     } else if target.contains("linux") {
         config.define("OS_LINUX", None);
         config.define("ROCKSDB_PLATFORM_POSIX", None);
@@ -235,7 +238,7 @@ fn build_rocksdb() {
     } else {
         config.flag(&cxx_standard());
         // matches the flags in CMakeLists.txt from rocksdb
-        config.define("HAVE_UINT128_EXTENSION", Some("1"));
+        // config.define("HAVE_UINT128_EXTENSION", Some("1"));
         config.flag("-Wsign-compare");
         config.flag("-Wshadow");
         config.flag("-Wno-unused-parameter");
